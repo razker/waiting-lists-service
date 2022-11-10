@@ -124,10 +124,6 @@ class App {
       }
     });
 
-    this.express.get("/", (req, res, next) => {
-      res.sendFile(path.join(__dirname, "../ui/build/index.html"));
-    });
-
     // swagger docs
     //this.express.use('/api/docs', swaggerUi.serve, swaggerUi.setup(this.swaggerDocument, null, null, this.customCss));
 
