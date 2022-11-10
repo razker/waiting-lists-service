@@ -8,11 +8,15 @@
     "dev": "nodemon start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "ENVIRONMENT=$ENVIRONMENT webpack",
-    "prod-build": "ENVIRONMENT='production' gulp"
+    "prod-build": "ENVIRONMENT='production' gulp",
+    "postinstall": "tsc"
+  },
+  "engines": {
+    "node": "19.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/razker/waiting-lists-app.git"
+    "url": "git+https://github.com/razker/waiting-lists-service.git"
   },
   "keywords": [],
   "author": "",
@@ -29,7 +33,9 @@
     "mongoose": "^5.11.12",
     "pine": "^1.1.1",
     "swagger-jsdoc": "^6.0.1",
-    "swagger-ui-express": "^4.1.6"
+    "swagger-ui-express": "^4.1.6",
+    "ts-node": "10.8.1",
+    "typescript": "^4.8.4"
   },
   "devDependencies": {
     "@types/express": "^4.17.11",
@@ -42,8 +48,6 @@
     "gulp-zip": "^5.1.0",
     "nodemon": "^2.0.7",
     "ts-loader": "^9.2.6",
-    "ts-node": "^9.1.1",
-    "typescript": "^4.8.4",
     "webpack": "^5.68.0",
     "webpack-cli": "^4.9.2",
     "webpack-stream": "^7.0.0"
