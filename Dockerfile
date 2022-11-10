@@ -4,7 +4,7 @@ ARG NODE_ENV=production
 ENV MONGO_CONNECTION_STRING $MONGO_CONNECTION_STRING
 ENV NODE_ENV $NODE_ENV
 
-RUN npm install tsc
+RUN npm tsc
 
 COPY ./build /build
 COPY ./package.json /package.json
