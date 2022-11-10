@@ -18,7 +18,5 @@ const WaitingListNodeSchema: Schema = new Schema({
   exchangeName: { type: String },
 });
 
-export const WaitingListNode: Model<IWaitingListNode> = model<IWaitingListNode>(
-  "waitinglists",
-  WaitingListNodeSchema
-);
+export const WaitingListNodeModel: Model<IWaitingListNode> =
+  model<IWaitingListNode>("waitinglists", WaitingListNodeSchema);

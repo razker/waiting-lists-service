@@ -1,5 +1,5 @@
 import { APILogger } from "../logger/api.logger";
-import { IWaitingListNode } from "../model/WaitingListNode.model";
+import { IWaitingListNode } from "../model/waitingListNode.model";
 import { WaitingListRepository } from "../repository/waitingList.repository";
 
 export class WaitingListService {

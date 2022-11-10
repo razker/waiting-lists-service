@@ -1,7 +1,7 @@
 import { connect, disconnect } from "../config/db.config";
 import {
   IWaitingListNode,
-  WaitingListNode,
+  WaitingListNodeModel,
 } from "../model/waitingListNode.model";
 import { APILogger } from "../logger/api.logger";
 
@@ -20,7 +20,7 @@ export class WaitingListRepository {
         eventId
       );
 
-      const waitingList = await WaitingListNode.find({
+      const waitingList = await WaitingListNodeModel.find({
         eventId,
       }).sort({
         createdDate: 1,
@@ -41,7 +41,9 @@ export class WaitingListRepository {
         waitingListNode
       );
 
-      const waitingListResult = await WaitingListNode.create(waitingListNode);
+      const waitingListResult = await WaitingListNodeModel.create(
+        waitingListNode
+      );
 
       return waitingListResult;
     } catch (error) {
@@ -61,7 +63,7 @@ export class WaitingListRepository {
         waitingListNode
       );
 
-      const waitingListResult = await WaitingListNode.updateOne(
+      const waitingListResult = await WaitingListNodeModel.updateOne(
         { _id: waitingListNodeId },
         waitingListNode
       );

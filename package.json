@@ -7,7 +7,8 @@
     "start": "ts-node index.ts",
     "dev": "nodemon start",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "tsc"
+    "tsc": "tsc",
+    "start:prod": "node build/index.js"
   },
   "engines": {
     "node": "19.0.0"
