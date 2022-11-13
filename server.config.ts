@@ -6,10 +6,5 @@ export const corsOption = {
   origin: (origin, callback) =>
     CORS_WHITELIST.indexOf(origin) !== -1
       ? callback(null, true)
-      : //   : callback(new Error("Not allowed by CORS")),
-        callback(null, true),
-};
-
-export const configureServer = (app) => {
-  app.use(cors(corsOption));
+      : callback(new Error("Not allowed by CORS")),
 };

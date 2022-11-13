@@ -1,4 +1,5 @@
 import * as bodyParser from "body-parser";
+import * as cors from "cors";
 const path = require("path");
 import * as express from "express";
 import { APILogger } from "./logger/api.logger";
@@ -6,6 +7,7 @@ import swaggerUi = require("swagger-ui-express");
 import fs = require("fs");
 import { EventController } from "./controller/event.controller";
 import { WaitingListController } from "./controller/waitingList.controller";
+import { corsOption } from "./server.config";
 
 class App {
   public express: express.Application;
@@ -34,6 +36,7 @@ class App {
     this.express.use(bodyParser.json());
     this.express.use(bodyParser.urlencoded({ extended: false }));
     this.express.use(express.static(path.join(__dirname, "../ui/build")));
+    this.express.use(cors(corsOption));
   }
 
   private routes(): void {
@@ -64,6 +67,11 @@ class App {
         this.logger.error(error);
         res.status(500).json(error);
       }
+    });
+
+    this.express.get("/api/health-check", (req, res) => {
+      this.logger.info(`GET /api/health-check`);
+      res.status(200).send();
     });
 
     this.express.get("/api/waiting-list/:eventId", async (req, res) => {

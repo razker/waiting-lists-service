@@ -1,13 +1,11 @@
 import * as http from "http";
 import App from "./app";
 import { APILogger } from "./logger/api.logger";
-import { configureServer } from "./server.config";
 require("dotenv").config();
 
 const port = process.env.PORT || 3080;
 
 App.set("port", port);
-configureServer(App);
 const server = http.createServer(App);
 server.listen(port);
 
