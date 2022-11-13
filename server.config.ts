@@ -1,5 +1,3 @@
-import * as cors from "cors";
-
 import CORS_WHITELIST from "./constants/frontend";
 
 export const corsOption = {
