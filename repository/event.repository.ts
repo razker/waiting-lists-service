@@ -28,7 +28,7 @@ export class EventRepository {
       const { eventType, eventDate } = eventData;
       const event = await EventModel.find({
         eventType,
-        eventDate,
+        eventDate: dayjs(eventDate).set("hour", 14).format(),
       });
 
       this.logger.info("EventRepository:: getEvent | event retrieved: ", event);
@@ -45,7 +45,7 @@ export class EventRepository {
       const { eventType, eventDate } = eventData;
       const event = await EventModel.create({
         eventType,
-        eventDate: dayjs(eventDate).set("hour", 14),
+        eventDate: dayjs(eventDate).set("hour", 14).format(),
       });
 
       return event;
