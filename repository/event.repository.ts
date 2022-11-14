@@ -43,7 +43,7 @@ export class EventRepository {
       const { eventType, eventDate } = eventData;
       const event = await EventModel.create({
         eventType,
-        eventDate: dayjs(eventDate).format("YYYY-MM-DD"),
+        eventDate: dayjs(eventDate).set("hour", 14),
       });
 
       return event;
