@@ -28,8 +28,10 @@ export class EventRepository {
       const { eventType, eventDate } = eventData;
       const event = await EventModel.find({
         eventType,
-        eventDate: dayjs(eventDate).format("YYYY-MM-DD"),
+        eventDate,
       });
+
+      this.logger.info("EventRepository:: getEvent | event retrieved: ", event);
 
       return event;
     } catch (error) {
