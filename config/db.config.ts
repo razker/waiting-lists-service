@@ -4,9 +4,8 @@ import * as Mongoose from "mongoose";
 let database: Mongoose.Connection;
 
 export const connect = () => {
-  const url = process.env.MONGO_CONNECTION_STRING;
   console.log(
-    "db.config | connect | process.env.MONGO_CONNECTION_STRING :::",
+    "db.config | connect | process.env.MONGO_URL :::",
     process.env.MONGO_CONNECTION_STRING
   );
 
@@ -14,7 +13,7 @@ export const connect = () => {
     return;
   }
 
-  Mongoose.connect(url, {
+  Mongoose.connect(process.env.MONGO_CONNECTION_STRING, {
     useNewUrlParser: true,
     useFindAndModify: true,
     useUnifiedTopology: true,
