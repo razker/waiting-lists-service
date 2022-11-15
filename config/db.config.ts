@@ -19,6 +19,8 @@ export const connect = () => {
     cluster
   )}.mongodb.net/${encodeURIComponent(dbname)}?retryWrites=true&w=majority`;
 
+  console.log("mongoString ", mongoString);
+
   Mongoose.connect(mongoString, {
     useNewUrlParser: true,
     useFindAndModify: false,
