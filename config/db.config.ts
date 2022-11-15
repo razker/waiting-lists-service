@@ -4,10 +4,9 @@ import * as Mongoose from "mongoose";
 let database: Mongoose.Connection;
 
 export const connect = () => {
-  const uri =
-    "mongodb+srv://razker:GRZvNgrQPShsEWLU@cluster0.vmmyehk.mongodb.net/waiting_lists?retryWrites=true&w=majority";
+  const uri = process.env.MONGO_CONNECTION_STRING;
   console.log(
-    "db.config | connect | process.env.MONGO_URL :::",
+    "db.config | connect | process.env.MONGO_CONNECTION_STRING :::",
     process.env.MONGO_CONNECTION_STRING
   );
 
