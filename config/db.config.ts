@@ -4,6 +4,8 @@ import * as Mongoose from "mongoose";
 let database: Mongoose.Connection;
 
 export const connect = () => {
+  const uri =
+    "mongodb+srv://razker:GRZvNgrQPShsEWLU@cluster0.vmmyehk.mongodb.net/?retryWrites=true&w=majority";
   console.log(
     "db.config | connect | process.env.MONGO_URL :::",
     process.env.MONGO_CONNECTION_STRING
@@ -13,7 +15,7 @@ export const connect = () => {
     return;
   }
 
-  Mongoose.connect(encodeURI(process.env.MONGO_CONNECTION_STRING), {
+  Mongoose.connect(uri, {
     useNewUrlParser: true,
     useFindAndModify: true,
     useUnifiedTopology: true,
