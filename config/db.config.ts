@@ -4,17 +4,18 @@ import * as Mongoose from "mongoose";
 let database: Mongoose.Connection;
 
 export const connect = () => {
-  const uri = process.env.MONGO_CONNECTION_STRING;
   console.log(
-    "db.config | connect | process.env.MONGO_CONNECTION_STRING :::",
-    process.env.MONGO_CONNECTION_STRING
+    "db.config | connect | process.env.MONGO_CONNECTION_STRING && MONGO_DB_NAME :::",
+    process.env.MONGO_CONNECTION_STRING,
+    process.env.MONGO_DB_NAME
   );
 
   if (database) {
     return;
   }
 
-  Mongoose.connect(uri, {
+  Mongoose.connect(process.env.MONGO_CONNECTION_STRING, {
+    dbName: process.env.MONGO_DB_NAME,
     useNewUrlParser: true,
     useUnifiedTopology: true,
     serverSelectionTimeoutMS: 5000,
