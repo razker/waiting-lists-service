@@ -8,31 +8,12 @@ export const connect = () => {
     return;
   }
 
-  const username = process.env.MONGO_USER;
-  const password = process.env.MONGO_PASSWORD;
-  const cluster = process.env.MONGO_CLUSTER;
-  const dbname = process.env.MONGO_DB_NAME;
-
-  const mongoString = `mongodb+srv://${encodeURIComponent(
-    username
-  )}:${encodeURIComponent(password)}@${encodeURIComponent(
-    cluster
-  )}.mongodb.net/${encodeURIComponent(dbname)}?retryWrites=true&w=majority`;
-
-  console.log("mongoString ", mongoString);
-
-  Mongoose.connect(mongoString, {
+  Mongoose.connect(process.env.MONGO_CONNECTION_STRING, {
+    dbName: process.env.MONGO_DB_NAME,
     useNewUrlParser: true,
-    useFindAndModify: false,
     useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 5000,
   });
-
-  //   Mongoose.connect(process.env.MONGO_CONNECTION_STRING, {
-  //     dbName: process.env.MONGO_DB_NAME,
-  //     useNewUrlParser: true,
-  //     useUnifiedTopology: true,
-  //     serverSelectionTimeoutMS: 5000,
-  //   });
 
   database = Mongoose.connection;
 
