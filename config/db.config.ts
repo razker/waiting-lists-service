@@ -18,6 +18,7 @@ export const connect = () => {
   Mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 5000,
   });
 
   database = Mongoose.connection;
