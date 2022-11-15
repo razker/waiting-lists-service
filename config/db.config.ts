@@ -13,18 +13,17 @@ export const connect = () => {
   const cluster = process.env.MONGO_CLUSTER;
   const dbname = process.env.MONGO_DB_NAME;
 
-  Mongoose.connect(
-    `mongodb+srv://${encodeURIComponent(username)}:${encodeURIComponent(
-      password
-    )}@${encodeURIComponent(cluster)}.mongodb.net/${encodeURIComponent(
-      dbname
-    )}?retryWrites=true&w=majority`,
-    {
-      useNewUrlParser: true,
-      useFindAndModify: false,
-      useUnifiedTopology: true,
-    }
-  );
+  const mongoString = `mongodb+srv://${encodeURIComponent(
+    username
+  )}:${encodeURIComponent(password)}@${encodeURIComponent(
+    cluster
+  )}.mongodb.net/${encodeURIComponent(dbname)}?retryWrites=true&w=majority`;
+
+  Mongoose.connect(mongoString, {
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true,
+  });
 
   //   Mongoose.connect(process.env.MONGO_CONNECTION_STRING, {
   //     dbName: process.env.MONGO_DB_NAME,
