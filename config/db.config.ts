@@ -13,7 +13,7 @@ export const connect = () => {
     return;
   }
 
-  Mongoose.connect(process.env.MONGO_CONNECTION_STRING, {
+  Mongoose.connect(encodeURI(process.env.MONGO_CONNECTION_STRING), {
     useNewUrlParser: true,
     useFindAndModify: true,
     useUnifiedTopology: true,
