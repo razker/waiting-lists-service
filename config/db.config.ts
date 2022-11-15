@@ -14,7 +14,11 @@ export const connect = () => {
   const dbname = process.env.MONGO_DB_NAME;
 
   Mongoose.connect(
-    `mongodb+srv://${username}:${password}@${cluster}.mongodb.net/${dbname}?retryWrites=true&w=majority`,
+    `mongodb+srv://${encodeURIComponent(username)}:${encodeURIComponent(
+      password
+    )}@${encodeURIComponent(cluster)}.mongodb.net/${encodeURIComponent(
+      dbname
+    )}?retryWrites=true&w=majority`,
     {
       useNewUrlParser: true,
       useFindAndModify: false,
