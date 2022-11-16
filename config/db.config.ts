@@ -8,6 +8,8 @@ export const connect = () => {
     return;
   }
 
+  console.log('DB connection string: ', (process.env.MONGO_CONNECTION_STRING + process.env.MONGO_DB_NAME);
+
   Mongoose.connect(process.env.MONGO_CONNECTION_STRING, {
     dbName: process.env.MONGO_DB_NAME,
     useNewUrlParser: true,
