@@ -9,8 +9,7 @@ export const connect = () => {
   }
 
   console.log(
-    "DB connection string: ",
-    process.env.MONGO_CONNECTION_STRING + process.env.MONGO_DB_NAME
+    `DB connection string: ${process.env.MONGO_CONNECTION_STRING} | DB name: ${process.env.MONGO_DB_NAME}`
   );
 
   const uri = process.env.MONGO_CONNECTION_STRING;
